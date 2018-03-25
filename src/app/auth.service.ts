@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AuthService {
   private user: Observable<firebase.User>;
-  private userDetails: firebase.User = null;
+  public userDetails: firebase.User = null;
 constructor(
   private _firebaseAuth: AngularFireAuth,
   private router: Router) {
@@ -56,6 +56,13 @@ isLoggedIn() {
 logout() {
     this._firebaseAuth.auth.signOut()
     .then((res) => this.router.navigate(['/']));
+  }
+
+  getUserInfo() {
+    console.log(this.userDetails);
+
+    console.log('From get userInfo Userdetails ^');
+    return this.userDetails;
   }
 
 }

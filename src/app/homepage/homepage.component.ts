@@ -8,7 +8,8 @@ import 'rxjs/add/operator/catch';
 import { venues } from '../venues';
 import { articles } from '../news';
 import { users } from '../users';
-// s
+import { AuthService } from '../auth.service';
+
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -17,8 +18,11 @@ import { users } from '../users';
 export class HomepageComponent implements OnInit, AfterViewInit {
   @ViewChild('targetSet') h1;
   randomnews; randomband; randomvenue; // random
+  mobile;
   bands_list; users_list; news_list; // all
   constructor( private _renderer: Renderer,
+    private _authService: AuthService,
+
   ) { }
 
   ngOnInit() {
@@ -38,6 +42,7 @@ export class HomepageComponent implements OnInit, AfterViewInit {
       'color',
       'red'
     );
+
     }
   }
 

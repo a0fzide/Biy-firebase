@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DataService } from '../data.service';
+import { AuthService } from '../auth.service';
+import { AuthGuard } from '../auth-guard.service';
+
+import { Router } from '@angular/router';
 
 // import { Band, bands } from '.../band/bands';
 @Component({
@@ -27,6 +31,9 @@ band = {
 
   constructor(
     private _dataService: DataService,
+    private _authService: AuthService,
+    private adminGuard: AuthGuard,
+    private _router: Router,
   ) { }
 
   ngOnInit() {

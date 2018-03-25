@@ -3,7 +3,68 @@
   <div class="jumbotron">
     <BR><BR><BR>
 
-     
+
+<ng-template #userFeed>
+  HEY HEY HEY ITS WORKS When Profile is in place, will render a FEEEEEDDDDD
+</ng-template>
+
+<div *ngIf="!user.displayname; else userFeed">
+     <h2>Welcome to your account with {{ user.email }}! Let's finish your profile.</h2>
+     <ul>
+        <li>You need to create yourself as a 'User' before you can comment and start networking with other musicians.</li>
+       <li> This includes: Display Name, Bio, Hometown, Bands, etc...</li>
+     </ul>
+     <div class="row">
+              <div class="col-sm-6 col-md-6 col-lg-6">
+                  <div class="card">
+                      <img class="card-img-top" src="/assets/static/diy3.jpg">
+                      <div class="card-block">
+                      
+                          <h4 class="card-title">Anonymous Account</h4>
+                          <div class="meta">
+                              <i>Fans & Music Followers</i>
+                          </div>
+                          <div class="card-text">
+                              <ul>
+                                <li>Post Comments</li>
+                                <li>Submit News Articles</li>
+                                <li>DM other users</li> 
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="card-footer">
+                          <small>Instant Access</small>  <!-- (click)=" updateUserCreateUserAccount() "-->   
+                         <button class="btn btn-secondary float-right btn-sm">Go Anononymous</button>
+                      </div>
+                  </div>
+                </div>
+              <div class="col-sm-6 col-md-6 col-lg-6">
+                  <div class="card">
+                      <img class="card-img-top" src="/assets/static/diy2.jpg">
+                      <div class="card-block">
+                      
+                          <h4 class="card-title">User Account</h4>
+                          <div class="meta">
+                              <i>Musicians, Fans, & Hosts</i>
+                          </div>
+                          <div class="card-text">
+                              <ul>
+                                  <li>Host a Venue Page and Band Creation.</li>
+                                  <li>Comment, Share, and Follow in custom feed. </li>
+                                  <li>Customize your profile, inbox, and more.</li> 
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="card-footer">
+                          <small>Learn More About...</small>
+                          <button class="btn btn-secondary float-right btn-sm">User Profile</button>
+                      </div>
+                  </div>
+                </div>
+    </div> <!-- end of row -->
+</div>
+
+
        <button (click)="logout()">Logout</button>
  
 

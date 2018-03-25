@@ -124,7 +124,7 @@ const bands: Band[] = [
         id: '6',
         bandname: 'Made Tough',
         admin: users[9].full_name,
-        bio: "We just grew up listening to this and Tim's mom had a good basement to practice.",
+        bio: 'We just grew up listening to this and Tims mom had a good basement to practice.',
         website: 'madetough.bandcamp.com',
         hometown: 'Indianapolis',
         state: 'IN',

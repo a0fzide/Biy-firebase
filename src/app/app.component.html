@@ -1,11 +1,13 @@
 
 <div class="Container">
 
+
 <nav class="navbar navbar-toggleable-sm navbar-fixed-top navbar-inverse bg-faded">
     <div class="container">
     <ul class="nav navbar-nav">
         <div class="container">
                 <div class="navbar-header">
+                  
 
         <li class="nav-item lg-col-7"><img class="navbar-brand" src="./assets/static/logo53.png" alt="logo"></li>
      </div>
@@ -17,23 +19,22 @@
         <li class="nav-item lg-col "><a class="nav-link" [routerLink]="['venues']" ngOnInitrouterLinkActive="active">Venues</a></li>
         <li class="nav-item lg-col"><a class="nav-link" [routerLink]="['news']" routerLinkActive="active">News</a></li>
         <li class="nav-item lg-col"><a class="nav-link" [routerLink]="['bands']" routerLinkActive="active">Bands</a></li>
-<a *ngIf="adminGuard.canAuthenticate()" class="nav-link" [routerLink]="['dashboard']" routerLinkActive="active">Dashboard</a>
-
-{{IsLogged | json}}
-
-        
+<a *ngIf="adminGuard.canAuthenticate()" class="nav-link" [routerLink]="['dashboard']" routerLinkActive="active">Dashboard</a>  
         <li class="nav-item lg-col">
-          
-          <button [routerLink]="['login']" routerLinkActive="active" class="sm-btn btn-danger navbar-btn">Login</button>
-          <button [routerLink]="['signup']" routerLinkActive="active" class="sm-btn btn-info navbar-btn">Sign-up</button>
+          <div *ngIf="!adminGuard.canAuthenticate()">
+              <button [routerLink]="['login']" routerLinkActive="active" class="sm-btn btn-danger navbar-btn">Login</button>
+              <button [routerLink]="['signup']" routerLinkActive="active" class="sm-btn btn-info navbar-btn">Sign-up</button>
+          </div>
         </li>
       </div>
-
-  
         </div>
     </ul>
   </div>
 </nav>
+
+
+
+
 <div style="width: 100%">
     <router-outlet ></router-outlet>
   </div>

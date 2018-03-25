@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="jumbotron">
+    <BR><BR>
+      <div class="row">
+        <div class="container">
+        <button align="center" type="button" class="btn btn-block facebook col-lg-4 col-sm-4 col-md-4" (click)="signInWithFacebook()">
+          <i class="fa fa-facebook" aria-hidden="true"> </i> 
+          Login with Facebook
+        </button>  
+        <button type="button" class="btn btn-block Google" (click)="signInWithGoogle()">
+            <i class="fa fa-google-plus" aria-hidden="true"></i>
+            Login with Google
+        </button>
+
+
+
+        <!-- https://itnext.io/part-2-complete-step-by-step-firebase-authentication-in-angular-2-25d284102632 -->
+
+        <div  class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" [(ngModel)]="user_email.email" placeholder="Email" required>
+            <div *ngIf="user_email.email.invalid && (user_email.email.dirty || user_email.email.touched)"
+            class="alert alert-danger"
+            > Email is required
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" [(ngModel)]="user_email.password" placeholder="Password" required>
+            <div *ngIf="user_email.password.invalid && (user_email.password.dirty || user_email.password.touched)"
+            class="alert alert-danger"
+            > Password is required
+            </div>
+          </div>
+          <div class="form-group">
+              <button type="buton" class="btn btn-primary btn-block" style="margin-bottom: 20px" (click)="signInWithEmail()" [disabled]="user_email.password.invalid || user_email.email.invalid">
+              Login with Email
+              
+              </button>
+           </div>
+           {{ error }}
+      </div>
+      </div>
+  </div>
+</div>

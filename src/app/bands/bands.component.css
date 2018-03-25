@@ -1,0 +1,73 @@
+.jumbotron {
+    color: black;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px;
+    padding: 2px 0px;
+    max-width: 100%;
+    justify-content: center;
+  }
+  .imCon{
+    background-color: black;
+    padding:1rem;
+
+  }
+
+  .imgContain:hover .overlay {
+    opacity: 1;
+  }
+
+  .imgContain:hover .text{
+    opacity: 1;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(5, 80, 105, 0.541);
+  }
+  .linkStyle{
+      text-decoration: none;
+      color: white;
+  }
+
+  .imgContain {
+    position: relative;
+
+  }
+
+
+    .text {
+        color: white;
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+        opacity: 0;
+
+      }
+  
+      .text h1 {
+        font-size: 2em;
+    
+
+      }
+
+
+
+      .load_icon{
+        width: 100px;
+      }
+     

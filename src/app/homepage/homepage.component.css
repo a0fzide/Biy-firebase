@@ -1,0 +1,31 @@
+
+  
+.background-biy {
+  background:
+  repeat-x,
+  url('/assets/static/background_image copy.jpg');
+  
+  /* background-size: cover; */
+}
+body{
+  margin: 0px;
+}
+
+.carousel-item img {
+  background-size: cover;
+  background-repeat: repeat;
+  /* vertical-align: top; */
+  
+width:100%;
+max-height: 800px;
+min-height:800px;}
+.carousel-item{
+  /* height: 800px; */
+  background-color: black;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+ background-color: rgba(0, 0, 0, 0.548);
+}

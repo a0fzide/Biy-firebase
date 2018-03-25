@@ -1,0 +1,18 @@
+.jumbotron {
+    color: black;
+}
+
+.facebook {
+    background-color:rgb(34, 63, 143);
+    color:white;
+    max-width: 200px;
+}
+
+.Google{
+  background-color:rgb(143, 34, 34);
+    color:white;
+    max-width: 200px;
+}
+.fa-google-plus, .fa-facebook{
+    padding-right:.2rem;
+}

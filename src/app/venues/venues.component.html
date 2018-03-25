@@ -1,0 +1,84 @@
+<!-- space_name: 'TCC',
+description: "Please donate and respect my effing space. I'm getting too old for this.",
+_pics: '/assets/static/venues/house-show2.jpg',
+host: users[4],
+capacity: 150,
+overnight: true,
+host_email: users[4].email,
+new_shows: {},
+news_mentions: {},
+other_details: 'We have a Pa and a bass cab up for grabs',
+street_address: '555 n diversey st',
+city: 'Chicago',
+zipcode: '60654',
+likes: 24, -->
+
+<div class="container">
+    <div class="jumbotron">
+        <BR><BR>
+            {{user | json}}
+
+        <h1>DIY Venues</h1>
+        <hr>
+            <div *ngFor="let venue of all_venues"class="venueContain">
+                <span> <h3>{{venue.space_name}} </h3>   {{venue.likes}} followers</span><hr>
+                
+            <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <img src="{{venue.pic}}" width="100%"> 
+                    </div>
+                
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <BR>
+                        <p><i>'{{venue.description}}' - {{venue.host.username}}</i></p>
+                        <p><strong>Location:</strong> {{venue.street_address}},{{venue.city}}, {{venue.zipcode}}</p>
+                        <p><strong>Capacity:</strong>{{venue.capacity}}+</p>
+                        <p><strong>Overnight:</strong> {{venue.overnight}}</p>
+                        <p><strong>Other Details</strong>: {{venue.other_details}}</p>
+                        <p><strong>Contact:</strong> {{venue.host.username}}</p>
+                        <p *ngIf="!venue.new_shows">no shows</p>
+                        <!-- <p *ngIf="venue.new_shows"><span *ngFor="let show of venue.new_shows">{{show.title}}</span></p> -->
+            </div>
+            </div>
+
+        
+
+  
+    </div>
+  </div>
+
+<div class="container">
+<div class="jumbotron">
+
+            <h1>Latest Shows</h1>
+            <HR>
+            <div *ngFor="let show of all_shows_list; let idx = index">
+                <ul>
+                    <li><h2>{{show.title}}</h2></li>
+                    <li><strong>Venue & Host: </strong>{{show.venue.spacename}} - {{show.venue.host.username}}</li>  
+                    <li><strong>Event Creator: </strong>{{show.creator.username}}</li>  
+                    <li><strong>Admins:</strong> <span *ngFor="let admin of show.admins">+<img height="20px"src="{{admin.profile_pic}}"><strong>{{admin.username}}  </strong></span></li>  
+                    <li><strong>Bands:</strong><span *ngFor="let band of show.bill">+{{band.bandname}} </span></li>  
+                    <BR>
+                      
+                    <div class="theConversation">   
+                      <h3 *ngIf="!showComments" (click)="showComments = !showComments"> Show Comments</h3>
+                      <h3 *ngIf="showComments" (click)="showComments = !showComments"> Comments</h3>
+                        <div class="container">
+                            <div *ngIf="showComments">
+                            <div class="row comments mb-2" *ngFor="let comment of show.comments; let idx = index">
+                                <span class="col-md-9 col-sm-9 col-9 comment rounded mb-2">
+                                    <p class="comment_parent">{{comment.content}} </p><p>^<img height="20px"src="{{ comment.author.profile_pic}}">  {{comment.author.username}} - {{comment.created_at}}</p>
+                                </span>
+                                <span class="comment_replies col-md-9 col-sm-9 col-9 comment rounded mb-2"*ngFor="let reply of comment.replies">
+                                    <p class="comment_reply">{{ reply.content}} </p><p> ^<img height="20px"src="{{ reply.author.profile_pic}}"> {{ reply.author.username}} - {{ reply.created_at }}</p>     
+                                </span><!-- show replies ends -->
+                            </div>  <!-- show comments ends --> 
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+            </div>  <!--show all shows ends-->
+
+  </div>
+  </div>

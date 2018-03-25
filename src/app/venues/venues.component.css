@@ -1,0 +1,36 @@
+.jumbotron {
+    color: black;
+}
+
+ul li {
+    list-style:none;
+}
+
+.comment_replies{      /* FOR REPLIES INDENT */
+   
+    color: rgb(2, 5, 19);
+    padding-left:4em;
+}
+.sm-col-12 .md-col-6 .lg-col-6{
+    vertical-align: top; 
+    display: inline-block;
+}
+
+.comment_reply {    /* FOR SPEECH BUBBLE */
+    font-size: 1.2em;
+    word-break: break-word;
+    padding: 1rem;
+    border-radius: 5px;
+ background-color: rgba(0, 0, 255, 0.164);
+}
+.venueContain{
+    padding:2rem;
+}
+
+.comment_parent {    /* FOR SPEECH BUBBLE */
+    word-break: break-word;
+    font-size: 1.2em;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: rgba(255, 0, 0, 0.164);
+}

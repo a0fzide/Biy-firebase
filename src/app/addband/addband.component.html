@@ -1,0 +1,38 @@
+<div class="conatiner">
+<div class="jumbotron">
+  <BR><BR>
+<div class="card">
+    <div class="card-content">
+      <span class="card-title">Create Band</span>
+      <form (ngSubmit)="onSubmit()" >
+        <div class="row">
+
+              <div class="input-field col-3">
+                  <label>BandName</label>
+                  <input type="text" placeholder="Full Name on your account" [(ngModel)]="band.bandname" 
+                  name="bandname">
+              </div>
+              <div class="input-field col-3">
+                  <label>Bio</label>
+                  <input placeholder="bio" [(ngModel)]="band.bio" 
+                  name="bio">
+              </div>
+              <div class="input-field col-3">
+                  <label>Hometown</label>
+                  <input placeholder="bio" [(ngModel)]="band.hometown" 
+                  name="hometown">
+              </div>
+              <div class="input-field col-3">
+                  <label>state</label>
+                  <input placeholder="state/province" [(ngModel)]="band.state" 
+                  name="state">
+              </div>
+          <input class="btn btn-primary btn-block"  type="submit" value="Submit" class="btn btn-primary">
+
+        </div>
+      </form>
+    </div>
+
+</div>
+</div>
+</div>

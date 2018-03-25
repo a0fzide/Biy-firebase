@@ -1,0 +1,27 @@
+
+<div class="container">
+    <div class="jumbotron">
+      <div class="w3-container w3-black">
+    <BR><BR>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            Article submissions will be reviewed by admin. Submit your article by General, Show, or Band. Any mentions make sure are referenced
+          </div>
+          <div class="col-sm-6 col-md-6 col-lg-6"></div>
+        </div>
+      </div>
+ 
+      <div class="news_contain col" *ngFor="let article of news_list">
+          <h1>{{article.title}}</h1>
+          <h4><i>{{article.created_at}} - by <strong>{{article.author.username}}</strong></i></h4>
+            <img src="{{article.cover_photo}}">
+           
+            <p>{{article.content}}</p>
+            <p>{{article.content | truncate}}</p>
+
+          </div>    
+          <hr>
+  </div>
+  </div>
+  </div>

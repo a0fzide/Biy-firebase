@@ -1,0 +1,41 @@
+<BR>
+<div class="container">
+    <div class="jumbotron">
+      <div class="container black">
+        
+
+          <h1>Hosts Fans & Musicians</h1>
+          
+            <span *ngFor="let user of users_list">
+            <div class="card">
+              <div class="container">
+                <div class="row">
+                <div class="profile md-col-3">
+                  <img class="profile_size" src="{{user.profile_pic}}">
+                  <p> {{user.username}} </p>
+                </div>
+                <div class="profile md-col-3">
+                  <BR>
+                  <h3 class="cityText">{{user.first_name}} {{user.last_name}}</h3>
+                  <p class="cityText"> {{user.city}}, {{ user.state_province}} </p>
+
+                </div>
+                <div class="profile md-col-3">
+                    <BR>
+                      <p>Listening To:</p>
+                    <p *ngFor="let band of user.listening_to"> -<strong>{{ band.bandname }} </strong></p>
+
+                  </div>
+                <div class="profile md-col-3">
+                  <BR>
+                    <span>{{user.bio | truncate}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </span>
+       
+
+  </div>
+  </div>
+  </div>

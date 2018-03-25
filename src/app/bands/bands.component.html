@@ -1,0 +1,79 @@
+
+    <div class="container">
+      <BR><BR>
+      <div class="jumbotron" style="background-color: white">
+        <div *ngIf="firestorebands?.length > 0; else noBands">
+         
+        </div>
+        <div *ngFor="let band of firestorebands">
+          {{band.bandname}}, ID: {{band.id}}
+        </div>
+        <div type="buton" class="btn btn-primary" [routerLink]="['addband']" routerLinkActive="active">Add Band</div>
+             <ng-template #noBands>
+            <img align="center" class="load_icon col-sm-12 col-md-12 col-lg-12" src="/assets/spinner.gif">
+            </ng-template>
+      </div>
+
+
+  </div>
+
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Bands</h1>
+
+            <BR><BR>
+
+              <div class="navbar"> 
+              <div class="container">
+              <div class="row" *ngFor="let band of all_bands">
+                <div class="imgContain" style = "width: 325px; height: 200px; overflow: hidden;">
+                  <img class="Bimg" style="max-width: 400px;" src="{{band.pic}}">
+                  <div class="overlay">
+                    <div class="text overlay2">
+                      <h1><a class="linkStyle" [routerLink]="['/show']">{{band.bandname}}</a></h1>
+                      <p>{{band.likes}} likes</p>
+                      <p style="font-size: .5em;">{{band.bio | truncateTitle}}</p>
+                    </div>
+                  </div>
+              </div>
+              </div>
+            </div>
+      </div>
+    </div>
+
+
+<div class="container">
+    <div class="jumbotron">
+        <BR><BR>
+          <div class="navbar"> 
+    
+         
+              <hr>
+          </div>
+<div *ngFor="let band of bands; let idx = index">
+  <div class="row">
+    <div class="col-sm-6 col-md-6 col-lg-6">
+      <img width="100%" src="{{band.pic}}">
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-6">    
+    <h2>{{ band.bandname}}</h2>
+    <p>{{band.hometown}}, {{band.state}}</p>
+
+    <p>"{{band.bio}}"</p>
+    <p><a href="http://{{band.website}}">{{band.website}}</a></p>
+
+    <span *ngFor="let genre of band.genres;  let idx = index"> 
+      <span style="color:grey" *ngIf="idx % 2 == 0"> {{genre}} </span>
+      <span style="color:rgba(0, 0, 255, 0.582)" *ngIf="idx % 2 == 1"> {{genre}} </span>
+    </span>
+ 
+  </div>
+</div>
+<hr>
+</div>
+
+  </div>
+  </div>
+
+

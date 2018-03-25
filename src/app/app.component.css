@@ -1,0 +1,138 @@
+
+
+ 
+  @import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+  .navbar-brand{
+    /* position: absolute;
+    z-index: 3;
+    top:1rem;
+  height:200px;
+  width:auto; */
+  z-index: 3;
+  height:150px;
+  width:auto; 
+  position: absolute;
+  margin-top:0px;
+
+  margin-left:-40px;
+  /* left: 90%;
+  margin-left: 200px !important;  */
+
+  /* position: absolute;
+    left: 50%;
+    margin-left: -50px !important; 
+    display: block; */
+
+  }
+  /* .navbar {
+    position: relative;
+} */
+
+
+.nav-item{
+margin-left:1rem !important;
+margin-right:1rem !important;
+color:white;
+}
+.nav-item a:hover {
+color: rgb(54, 143, 143);
+}
+
+.navbar{
+background-color:#000000;
+min-height:50px;
+}
+
+.nav-item a{
+color:white;
+text-align: right;  
+
+
+}
+.nav-item:nth-child(2){
+   left: 95%;
+  margin-left: 200px !important; 
+  
+}
+.nav-item:last-child{
+  padding-top: 5px;
+padding-left: 2em;
+}
+/* .nav-item:last-child */
+
+.nav-styles {
+background-color: #1a1b22;
+}
+
+.nav-styles a {
+color: white;
+}
+
+.nav-styles a:hover {
+color: #20489e;
+}
+
+.nav-link.active {
+color: #20489e !important;
+}
+
+.dropdown-links a {
+color: #1a1b22;
+}
+.dropdown {
+    background-color: black;
+}
+
+.dropdown-links a:hover {
+color: #252830;
+}
+.faux-btn span{
+color: rgba(255, 255, 255, 0.836);
+
+}
+.sm-btn{
+  float:right;
+  
+}
+.faux-btn {
+/* border: 1px solid rgba(0, 255, 255, 0.836); */
+background-color: #293B62;
+
+/* border-radius: 5px; */
+padding: .5em 1em .5em 1em;
+}
+
+@media screen and (max-width: 1000px) {
+  .navbar:not(:first-child) {display: none;}
+  .navbar img {
+    /* padding-left: 50%; */
+    position: relative;
+    text-align: center;
+    height:150px;
+    width:auto; 
+
+    /* display: none; */
+  }
+   .nav-item,.lg-col-1
+  {
+    text-align: center;
+    display: block;
+    left: 0%;
+    margin-left: 0px !important; 
+
+  }
+  .nav-item:nth-child(2){
+    text-align: center;
+    left: 0%;
+   margin-left: 0px !important; 
+   
+ }
+ .navbar a{
+   padding-left: 20px;
+   text-align: center;
+
+ }
+}
+
+

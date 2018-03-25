@@ -1,0 +1,12 @@
+.jumbotron {
+    color: black;
+}
+
+.news_contain img {
+    width:100%;
+    height:auto;
+}
+.news_contain p,.news_contain h4  {
+    padding:1rem;
+    text-indent: 10%;
+}

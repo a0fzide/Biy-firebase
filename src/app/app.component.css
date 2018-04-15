@@ -104,7 +104,9 @@ padding: .5em 1em .5em 1em;
 }
 
 @media screen and (max-width: 1000px) {
-  .navbar:not(:first-child) {display: none;}
+  /* .navbar:not(:first-child) {} /*display: none;*/  
+  /* .navbar {display: none;} display: none;  */
+
   .navbar img {
     /* padding-left: 50%; */
     position: relative;
@@ -131,8 +133,35 @@ padding: .5em 1em .5em 1em;
  .navbar a{
    padding-left: 20px;
    text-align: center;
-
+   color: white;
  }
 }
 
+
+@media screen and (min-width: 500px){
+  .Mobile {
+    display: none;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 499px){
+  .Mobile {
+    display: inline;
+    color:white;
+  }
+
+  .nav-link, a{
+    color: white;
+  }
+
+  nav {
+    margin-bottom: 3em;
+
+  }
+  .notMobile {
+    display: none;
+  }
+
+}
+/* Nav MOBILE Nav Nav NAV Nav Nav Nav NAV Nav Nav Nav NAV*/
 

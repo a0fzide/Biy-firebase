@@ -1,24 +1,194 @@
 
+
     <div class="container">
         <BR><BR>
         <div class="jumbotron" style="background-color: white">
           <div *ngIf="firestorebands?.length > 0; else noBands">
-           
-          </div>
+          <!-- <a [routerLink]="['home']" routerLinkActive="active"> -->
+           <div *ngIf="messageCatch" (click)="clearLocalMessage();" class="alert alert-success">
+             {{ messageCatch }} 
+            <i class="fa fa-close"></i>
+           </div>
+          <!-- </a> -->
+         
           <div *ngFor="let band of firestorebands">
-            {{band.bandname}}, ID: {{band.id}}
-          </div>
-          <!-- Add Band -->
-                <div *ngIf="adminGuard.canAuthenticate()">
-                  <button [disabled]="!user.displayname" (click)="checkAccountComp()" class="btn btn-primary" [routerLink]="['addband']" routerLinkActive="active">Add Band</button>
+            <ul *ngIf="band.id" class="userBandList">
+              <li>
+                <div [style.color]="getStyle(band)">
+                  Band: {{band.bandname}}<BR>
+                  Hometown: {{band.hometown}}<BR>
+                  Genres: <span *ngFor="let genre of band.genres"> {{genre}}, </span><BR>
+                  Members: <span *ngFor="let member of band.members">{{ member }},</span><BR>
+
+                </div>
+                <!-- && band.adminID === user.uid -->
+                <i *ngIf="adminGuard.canAuthenticate()" (click)="editBand($event, band)" class="fa fa-pencil"></i>
+                <i *ngIf="editState && bandtoEdit.id === band.id" (click)="clearState()" class="fa fa-close"></i>
+                
+                <div *ngIf="editState && bandtoEdit.id === band.id">
+                    <form (ngSubmit)="updateBand(band)" #updatebandForm="ngForm">
+                        <div class="row">
+                        <div align="center" class="container">
+                         <div class="col-md-12 col-lg-12 col-sm-12">
+                        <div class="row">
+                         <div class="form-group col-md-4">
+                                <label for="bandname">Band Name</label>
+                                <input type="text" 
+                                id="bandname"
+                                class="form-control"
+                                required
+                                #bandname='ngModel'
+                                placeholder="Full Name on your account" 
+                                [(ngModel)]="band.bandname" 
+                                name="bandname"
+                                >
+                          
+                                     <div *ngIf="bandname.invalid && (bandname.dirty || bandname.touched)"
+                                     class="alert alert-danger"
+                                     > Band Name is required
+                                     </div>
+                         </div>
+                
+                         <div class="form-group col-md-4">
+                             <label for="bio">Bio</label>
+                             <input type="bio"
+                             id="bio"
+                             placeholder="bio goes here"
+                             class="form-control"
+                             required
+                             name="bio"
+                             #bio='ngModel'
+                
+                             [(ngModel)]="band.bio"
+                             >
+                                     <div *ngIf="bio.invalid && (bio.dirty || bio.touched)"
+                                     class="alert alert-danger"
+                                     > bio is required
+                                     </div>
+                         </div>
+                   
+                         <BR>
+                            <div class="form-group col-md-4">
+                                    <label for="hometown">Hometown</label>
+                                    <input type="text"
+                                    id="hometown"
+                                    placeholder="be secure"
+                                    class="form-control"
+                                    required
+                                    name="hometown"
+                                    #hometown='ngModel'
+                                    [(ngModel)]="band.hometown"
+                                    >
+                                            <div *ngIf="hometown.invalid && (hometown.dirty || hometown.touched)"
+                                            class="alert alert-danger"
+                                            > Hometown is required
+                                            </div>
+                                </div>
+                      </div>
+                      <div class="row">
+                                <div class="form-group col-md-4">
+                                        <label for="state">State/Province</label>
+                                        <input type="text"
+                                        id="state"
+                                        placeholder="be secure"
+                                        class="form-control"
+                                        required
+                                        name="state"
+                                        #state='ngModel'
+                                        [(ngModel)]="band.state"
+                                        >
+                                                <div *ngIf="state.invalid && (state.dirty || state.touched)"
+                                                class="alert alert-danger"
+                                                > State is required
+                                                </div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                            <label for="genres">Genres</label>
+                                            <input type="text"
+                                            id="genres"
+                                            placeholder="seperate genres by spaces"
+                                            class="form-control"
+                                            required
+                                            name="genres"
+                                            #genres='ngModel'
+                                            [(ngModel)]="band.genres"
+                                            >
+                                                    <div *ngIf="genres.invalid && (genres.dirty || genres.touched)"
+                                                    class="alert alert-danger"
+                                                    > Genres is required 
+                                                    </div>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                                <label for="members">Members</label>
+                                                <input type="text"
+                                                id="members"
+                                                placeholder="seperate members by spaces"
+                                                class="form-control"
+                                                required
+                                                name="members"
+                                                #members='ngModel'
+                                                [(ngModel)]="band.members"
+                                                >
+                                                        <div *ngIf="members.invalid && members.touched"
+                                                        class="alert alert-danger"
+                                                        > Members is required 
+                                                        </div>
+                                            </div>
+                                          </div> <!--end of row-->
+                             <BR>
+                
+                               <div class="container">
+                                
+                                     <button class="col-5 btn-warning" 
+                                     [hidden]="submitted" 
+                                     [disabled]="!updatebandForm.valid" 
+                                     type="submit" 
+                                     value="Create"
+                                     >Update</button>
+                                     <button (click)="deleteBand($event, band)" class="col-5 btn-danger">Delete</button> 
+
+                               </div>
+
+                               <div *ngIf="message" class="alert alert-warning">
+                                    {{ message }}
+                                </div>
+                               {{error}}
+                       </div>
+                       </div>
+                     </div>
+                       </form>
+
+                </div>
+
+              </li>
+          </ul>
+        </div>
+      </div> <!--end of if Firestore?.bands -->
+          
+          <!-- Add Band  [disabled]="!adminGuard.canAuthenticate() || user.isAnonymous == false"  -->
+                <div *ngIf="adminGuard.canAuthenticate()"> 
+
+                  <button class="btn btn-primary" [routerLink]="['addband']" routerLinkActive="active">Add Band</button>
+                  <button class="btn btn-warning" [routerLink]="['genres']" routerLinkActive="active">View Genres</button>
+
+                  <BR><BR>
                         <p class="alert alert-warning" *ngIf="!user.displayname && adminGuard.canAuthenticate()">
-                          You must have a finished account to add your band! 
+                              You must have a finished account to add your band! 
                               <a *ngIf="adminGuard.canAuthenticate()" class="nav-link" [routerLink]="['/dashboard']" routerLinkActive="active">Dashboard</a>  
                         </p>
                 </div>
+               <div *ngIf="!adminGuard.canAuthenticate()">
+                  <p class="alert alert-info">
+                      <button type="button" class="btn-primary" [routerLink]="['/signup']" routerLinkActive="active">Sign-up</button>  
+                      or 
+                      <button type="button" class="btn-primary" [routerLink]="['/login']" routerLinkActive="active">Login</button>  
+                      to add bands and become apart of your local music community.
+                </p>
+               </div>
                <ng-template #noBands>
               <img align="center" class="load_icon col-sm-12 col-md-12 col-lg-12" src="/assets/spinner.gif">
               </ng-template>
+             
         </div>
   
   
@@ -40,7 +210,7 @@
                       <div class="text overlay2">
                         <h1><a class="linkStyle" [routerLink]="['/show']">{{band.bandname}}</a></h1>
                         <p>{{band.likes}} likes</p>
-                        <p style="font-size: .5em;">{{band.bio | truncateTitle}}</p>
+                        <p style="font-size: .5em;">{{band.bio | truncateTitle }}</p>
                       </div>
                     </div>
                 </div>

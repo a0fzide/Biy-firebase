@@ -36,8 +36,15 @@ export class EmailLoginComponent implements OnInit {
     private _authService: AuthService,
     private _firebaseAuth: AngularFireAuth,
     private router: Router,
-  ) { }
+
+  ) {
+
+  }
   ngOnInit() {
+    // if (!this._firebaseAuth.authState) {
+    //   console.log(this._firebaseAuth.authState);
+    // this.router.navigate(['dashboard']);
+    // }
   }
 
   signInWithFacebook() {

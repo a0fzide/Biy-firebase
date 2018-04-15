@@ -1,0 +1,55 @@
+<div class="container ">
+
+   <div class="jumbotron">
+     <BR><BR>
+     <div class="row">
+        <span> 
+          [filter genres by a parent genre...]
+          <button align="center" (click)="filterGenre('pop')" class="btn btn-warning">Pop</button>
+          <button align="center" (click)="filterGenre('metal')" class="btn btn-warning">Metal</button>
+          <button align="center" (click)="filterGenre('hardcore')" class="btn btn-primary">Hardcore</button>
+          <button align="center" (click)="filterGenre('punk')" class="btn btn-danger">Punk</button>
+          <button align="center" (click)="filterGenre('experimental')" class="btn btn-success">Experimental</button>
+          <button align="center" (click)="filterGenre('other')" class="btn btn-primary">Other</button>
+        </span>
+      </div>
+      <BR><BR>
+      <div class="row">
+     <h1>About Genres</h1>
+       <p>Genres can be used to help you both discover, follower, and promote the bands you love. Here are some of the tags we promote on BIY. If you wish you submit a genre. 
+       Create one here.
+       </p>
+       <BR>
+<div class="container">
+        <div class="genreButton">
+            <BR>
+            <div id="genreTemplate" class="alert alert-info">
+                    <h2>{{ defaultTitle | titlecase }}:</h2>
+                    <span align="center">Using these selected genres will help people search for your band later. </span>
+                    <BR><BR>
+                    <ul class="row" *ngFor="let genre of genreList;let idx = index">
+                      <div class="col-sm-4 col-md-4 col-lg-4">
+                            <li style="color:rgb(48, 29, 0)" *ngIf="idx % 2 == 0"> <i>{{ genre.name }}</i> [
+                                    <a href="{{genre.wiki}}" target="blank"style="color:grey"><i alt="Wikipedia" class="fa fa-wikipedia-w fa-xs"></i></a>
+                                    <a href="{{genre.spotify}}" target="blank"title="Spotify" style="color:green"><i class="fa fa-spotify fa-xs"></i></a>
+                                    <a href="{{genre.lastfm}}" target="blank" title="lastfm" style="color:rgb(39, 79, 131)"><i class="fa fa-lastfm fa-xs"></i></a>
+                                    ]
+                            </li>
+                            <li style="color:rgba(0, 0, 122, 0.582)" *ngIf="idx % 2 == 1"> <i>{{ genre.name }}</i>[
+                                    <a href="{{genre.wiki}}" target="blank" style="color:grey"><i alt="Wikipedia" class="fa fa-wikipedia-w fa-xs"></i></a>
+                                    <a href="{{genre.spotify}}"  target="blank" title="Spotify" style="color:green"><i class="fa fa-spotify fa-xs"></i></a>
+                                    <a href="{{genre.lastfm}}"  target="blank" title="lastfm" style="color:rgb(39, 79, 131)"><i class="fa fa-lastfm fa-xs"></i></a>
+                                    ]
+                            </li>
+                        </div>
+                    </ul>
+            </div>
+          </div>
+        </div> <!-- end of genre module CONATINER 2-->
+      <!-- end ROW 2-->
+   </div>
+
+
+    </div> <!--//end of container-->
+<BR>
+  

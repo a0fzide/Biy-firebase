@@ -10,9 +10,12 @@ import { ProfileComponent } from './profile/profile.component';
 import { EmailLoginComponent } from './email-login/email-login.component';
 import { EmailSignupComponent } from './email-signup/email-signup.component';
 import { AddbandComponent } from './addband/addband.component';
+import { UpdateuserComponent } from './updateuser/updateuser.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './auth-guard.service';
+import { GenresComponent } from './genres/genres.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -27,7 +30,9 @@ const routes: Routes = [
     { path: 'signup', component: EmailSignupComponent },
     { path: 'dashboard', canActivate: [AuthGuard], component: DashboardComponent},
     { path: 'bands/addband', canActivate: [AuthGuard], component: AddbandComponent },
-
+    { path: 'bands/genres', component: GenresComponent },
+    { path: 'dashboard/updateuser', component: UpdateuserComponent },
+    { path: 'dashboard/userprofile', component: UserprofileComponent },
 
 
 ];

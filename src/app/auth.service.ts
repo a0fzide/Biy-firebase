@@ -3,14 +3,19 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
+import { AngularFirestoreDocument } from 'angularfire2/firestore';
 @Injectable()
 export class AuthService {
+
   private user: Observable<firebase.User>;
+  band;
   public userDetails: firebase.User = null;
 constructor(
   private _firebaseAuth: AngularFireAuth,
   private router: Router) {
   this.user = _firebaseAuth.authState;
+  // const userRef: AngularFirestoreDocument<User> = this._firebaseAuth.doc()
+
 this.user.subscribe(
         (user) => {
           if (user) {
@@ -20,6 +25,8 @@ this.user.subscribe(
             this.userDetails = null;
           }
         }
+
+
       );
   }
   signUp(email, password) {
@@ -62,6 +69,10 @@ logout() {
     console.log(this.userDetails);
 
     console.log('From get userInfo Userdetails ^');
+    return this.userDetails;
+  }
+  pushBand(band) {
+
     return this.userDetails;
   }
 

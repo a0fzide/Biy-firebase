@@ -21,8 +21,12 @@ import { shows, Show } from './shows';
 export interface Band {
     id?: string;
     bandname?: string;
+    // file?: File;
+    // fileprogress?: Number;
+    // downloadURL?: String;
     pic?: string;
     admin?: string;
+    adminID?: string;
     bio?: string;
     state?: string;
     website?: string;
@@ -31,8 +35,7 @@ export interface Band {
     members?: {};
     upcomingShows?: {};
     genres?: string[];
-
-
+    created_at?: Date;
 }
 
 const bands: Band[] = [

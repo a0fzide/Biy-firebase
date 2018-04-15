@@ -5,13 +5,15 @@
 
 
 <ng-template #userFeed>
-  HEY HEY HEY ITS WORKS When Profile is in place, will render a FEEEEEDDDDD
+  HEY HEY HEY ITS WORKS When Profile is in place, will render a FEEEEEDDDDD HERE IS FEED
+  <h2>FEEEEEDDD MUHAHAHAHAAH</h2>
 </ng-template>
 
 <div *ngIf="!user.displayname; else userFeed">
+    <!-- <div [routerLink]="['update']"class="btn btn-warning">Temp Route: Image Uplaod Test</div> -->
      <h2>Welcome to your account with {{ user.email }}! Let's finish your profile.</h2>
      <ul>
-        <li>You need to create yourself as a 'User' before you can comment and start networking with other musicians.</li>
+        <li>You need to create your profile before you can start networking with other musicians, adding your band, and DMing venues and bands.</li>
        <li> This includes: Display Name, Bio, Hometown, Bands, etc...</li>
      </ul>
      <div class="row">
@@ -20,21 +22,21 @@
                       <img class="card-img-top" src="/assets/static/diy3.jpg">
                       <div class="card-block">
                       
-                          <h4 class="card-title">Anonymous Account</h4>
+                          <h4 class="card-title">Basic Account</h4>
                           <div class="meta">
                               <i>Fans & Music Followers</i>
                           </div>
                           <div class="card-text">
                               <ul>
                                 <li>Post Comments</li>
-                                <li>Submit News Articles</li>
-                                <li>DM other users</li> 
+                                <li>Submit News Articles and Reviews</li>
+                                <li>Like and Follow Other Bands</li> 
                               </ul>
                           </div>
                       </div>
                       <div class="card-footer">
-                          <small>Instant Access</small>  <!-- (click)=" updateUserCreateUserAccount() "-->   
-                         <button class="btn btn-secondary float-right btn-sm">Go Anononymous</button>
+                          <small>Continue As Is...</small>  <!-- (click)=" updateUserCreateUserAccount() "-->   
+                         <button  [routerLink]="['/bands']" routerLinkActive="active" class="btn btn-info float-right btn-sm">Check Out Bands</button>
                       </div>
                   </div>
                 </div>
@@ -56,20 +58,14 @@
                           </div>
                       </div>
                       <div class="card-footer">
-                          <small>Learn More About...</small>
-                          <button class="btn btn-secondary float-right btn-sm">User Profile</button>
+                          <small>Finish Your Profile...</small>
+                          <button  [routerLink]="['updateuser']" routerLinkActive="active" class="btn btn-success float-right btn-sm">Update User Profile</button>
                       </div>
                   </div>
                 </div>
     </div> <!-- end of row -->
 </div>
-
-
-       <button (click)="logout()">Logout</button>
- 
-
-
-
+       <!-- <button (click)="logout()">Logout</button> -->
 
   </div>
 </div>

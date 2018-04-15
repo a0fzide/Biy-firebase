@@ -1,3 +1,22 @@
 .jumbotron {
     color:black;
 }
+ul {
+    margin: 0px auto;
+    list-style:none;
+    text-align: center;
+
+}
+.genreButton{
+    list-style: none; 
+    max-height: 200px; 
+    overflow: scroll;
+}
+span {
+    text-align: center;
+}
+h2{
+    text-emphasis: none;
+    text-align: center;
+    padding-left: 1em;
+}

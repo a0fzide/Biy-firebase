@@ -1,8 +1,45 @@
 
 <div class="Container">
 
+    <div class="Mobile">
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+              <div class="bg-dark p-4">
+                  <ul>
+                      <img class="nav-brand" width="250px;" src="./assets/static/logo53.png" alt="logo">
+    
+                  <a class="nav-link" [routerLink]="['home']" routerLinkActive="active"></a>
+                      <a class="nav-link" [routerLink]="['home']" routerLinkActive="active">Home</a>
+    
+                      <a class="nav-link" [routerLink]="['venues']" ngOnInitrouterLinkActive="active">Venues</a>
+                      <a class="nav-link" [routerLink]="['news']" routerLinkActive="active">News</a>
+                      <a class="nav-link" [routerLink]="['bands']" routerLinkActive="active">Bands</a>
+                      <!-- <a *ngIf="adminGuard.canAuthenticate()" class="nav-link" [routerLink]="['dashboard']" routerLinkActive="active">Dashboard</a>   -->
+                      <li class="nav-item">
+                      <div *ngIf="!adminGuard.canAuthenticate()">
+                        <button [routerLink]="['login']" routerLinkActive="active" class="sm-btn btn-danger navbar-btn">Login</button>
+                        <button [routerLink]="['signup']" routerLinkActive="active" class="sm-btn btn-info navbar-btn">Sign-up</button>
+                      </div>
+                  </ul>
+              </div>
+            </div>
+            <nav class="navbar navbar-inverse bg-dark">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </nav>
+          </div>
+    </div>
 
-<nav class="navbar navbar-toggleable-sm navbar-fixed-top navbar-inverse bg-faded">
+
+<!-- mobile mobile mobilemobile mobile mobilemobile mobile mobilemobile mobile mobile -->
+
+<nav class="navbar navbar-toggleable-sm navbar-fixed-top navbar-inverse bg-faded notMobile">
+
+
+
+
+
     <div class="container">
     <ul class="nav navbar-nav">
         <div class="container">
@@ -25,6 +62,10 @@
               <button [routerLink]="['login']" routerLinkActive="active" class="sm-btn btn-danger navbar-btn">Login</button>
               <button [routerLink]="['signup']" routerLinkActive="active" class="sm-btn btn-info navbar-btn">Sign-up</button>
           </div>
+          <div *ngIf="adminGuard.canAuthenticate()">
+              <button (click)="_authService.logout()" class="btn-primary">Logout</button>
+          </div>
+
         </li>
       </div>
         </div>

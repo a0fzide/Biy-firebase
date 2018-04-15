@@ -1,0 +1,38 @@
+.jumbotron {
+    color: white;
+    background-color: rgb(0, 14, 20);
+    padding: 5rem;
+   
+}
+
+.btn {
+    margin: .17rem;   
+    color: white;
+    border: none;
+}
+.alert {
+
+}
+
+.btn-warning:nth-child(2) {
+background-color: orange;
+}
+.btn-warning:nth-child(3) {
+    background-color: purple;
+
+}
+.btn-warning:nth-child(4) {
+    background-color: black;
+}
+.btn-warning:nth-child(5) {
+    background-color: grey;
+}
+.btn-warning:nth-child(5) {
+    background-color: red;
+}
+.btn-warning:nth-child(5) {
+    background-color: green;
+}
+.btn-warning:nth-child(5) {
+    background-color: pink;
+}

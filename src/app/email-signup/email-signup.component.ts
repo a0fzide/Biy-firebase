@@ -29,7 +29,6 @@ onSubmit() {
     this._authService.signUp(this.user.email, this.user.password)
     .then((res) => {
       console.log(res);
-
       this.router.navigate(['dashboard']);
    })
    .catch((err) => this.error = err);

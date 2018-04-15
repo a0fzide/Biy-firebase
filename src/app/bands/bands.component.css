@@ -71,3 +71,20 @@
         width: 100px;
       }
      
+
+
+
+      .userBandList {
+        list-style: none;
+        
+      }
+      .slide-fade li {
+        transition: all 4s ease-out;
+        opacity: 0;
+      }
+      .slide-fade li.show {
+        opacity: 1;
+      }
+      form > label, label {
+        text-align: left;
+      }

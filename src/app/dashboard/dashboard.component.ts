@@ -11,6 +11,7 @@ import * as firebase from 'firebase/app';
 })
 export class DashboardComponent implements OnInit {
   user;
+  message;
   constructor(
     private _firebaseAuth: AngularFireAuth,
     private _router: Router,
@@ -22,29 +23,34 @@ export class DashboardComponent implements OnInit {
     this.user = this._authService.getUserInfo();
     console.log(this.user);
   }
+
+  getUserMessage() {
+    return this.message;
+  }
+
   logout() {
      this._authService.logout();
   }
 
-  updateUserAnon() {
+  updateUserBasic() {
     const user = firebase.auth().currentUser;
-
-    user.updateProfile({
-        displayName: 'Jane Q. User',
-        photoURL: 'https://example.com/jane-q-user/profile.jpg'
+    user.updateProfile(
+      {
+        displayName: user.email,
+        photoURL: '/assets/static/anon_img.png'
     }).then(function() {
-        // Update successful.
+      this.message = `Your display name will be Anonymous`;
     }, function(error) {
-        // An error happened.
+      this.message = `Uh Oh! Error occured! shoot and email to ` + `ninapalumbo@gmail.com` + `. We want to improve our website!`;
     });
-
   }
+
   updateUserCreateUserAccount() {
     const user = firebase.auth().currentUser;
-
+    this.message = `Your display name will be Anonymous`;
     user.updateProfile({
-        displayName: 'Jane Q. User',
-        photoURL: 'https://example.com/jane-q-user/profile.jpg'
+        displayName: 'Anonymous',
+        photoURL: '/assets/static/anon_img.png'
     }).then(function() {
         // Update successful.
     }, function(error) {

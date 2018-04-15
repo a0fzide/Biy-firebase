@@ -1,7 +1,10 @@
 .jumbotron {
     color: black;
+    background:
+    repeat-x,
+    url('/assets/static/background_image copy.jpg');
+    
 }
-
 .facebook {
     background-color:rgb(34, 63, 143);
     color:white;
@@ -15,4 +18,15 @@
 }
 .fa-google-plus, .fa-facebook{
     padding-right:.2rem;
+}
+.card {
+    
+    padding: 1rem;
+}
+.socialLog {
+    padding: 4em;
+}
+.shadow {
+    background-color: rgb(250, 249, 249);
+    padding:1rem;
 }

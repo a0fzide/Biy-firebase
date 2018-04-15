@@ -4,7 +4,6 @@
   background:
   repeat-x,
   url('/assets/static/background_image copy.jpg');
-  
   /* background-size: cover; */
 }
 body{
@@ -18,7 +17,8 @@ body{
   
 width:100%;
 max-height: 800px;
-min-height:800px;}
+
+}
 .carousel-item{
   /* height: 800px; */
   background-color: black;

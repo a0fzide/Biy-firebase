@@ -65,7 +65,7 @@ const users: User[] = [
    city: 'Chicago',
    state_province: 'IL',
    bands_following: [], // will get circular reference error
-   listening_to: [ { bandname: 'You.Folk' }, { bandname: 'Suis La Lune' },  { bandname: 'Birds In Row' } ],
+   listening_to: [ { bandname: 'You.Folk' }, { bandname: 'Suis La Lune' }, { bandname: 'Birds In Row' } ],
    bio: 'Lorem ipsum dolor amet letterpress mumblecore neutra raclette, tumeric taiyaki yuccie copper mug brooklyn cray man bun tumblr truffaut godard. Occupy vaporware live-edge, crucifix art party vape normcore pop-up food truck chia craft beer gluten-free copper mug palo santo small batch. Keffiyeh echo park drinking vinegar, tumblr master cleanse put a bird on it taxidermy banh mi. Green juice whatever taxidermy, chia copper mug YOLO aesthetic church-key health goth.',
    email: 'ryoung1992@gmail.com',
  

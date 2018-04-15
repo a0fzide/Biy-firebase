@@ -1,38 +1,187 @@
-<div class="conatiner">
+
+<div class="container">
+
+
+
 <div class="jumbotron">
   <BR><BR>
-<div class="card">
-    <div class="card-content">
-      <span class="card-title">Create Band</span>
-      <form (ngSubmit)="onSubmit()" >
+      <h1 align="center">Create Band</h1>
+      <BR>
+               
+        <form (ngSubmit)="onSubmit(ngForm)" #addBandForm="ngForm">
         <div class="row">
+                       
+        <div align="center" class="container">
+         <div class="col-md-6 col-lg-6 col-sm-6">
+         <div class="form-group col-md-12">
+                <label for="bandname">Band Name</label>
+                <input type="text" 
+                id="bandname"
+                class="form-control"
+                required
+                #bandname='ngModel'
+                placeholder="Full Name on your account" 
+                [(ngModel)]="band.bandname" 
+                name="bandname"
+                >
+          
+                     <div *ngIf="bandname.invalid && (bandname.dirty || bandname.touched)"
+                     class="alert alert-danger"
+                     > Band Name is required
+                     </div>
+         </div>
 
-              <div class="input-field col-3">
-                  <label>BandName</label>
-                  <input type="text" placeholder="Full Name on your account" [(ngModel)]="band.bandname" 
-                  name="bandname">
-              </div>
-              <div class="input-field col-3">
-                  <label>Bio</label>
-                  <input placeholder="bio" [(ngModel)]="band.bio" 
-                  name="bio">
-              </div>
-              <div class="input-field col-3">
-                  <label>Hometown</label>
-                  <input placeholder="bio" [(ngModel)]="band.hometown" 
-                  name="hometown">
-              </div>
-              <div class="input-field col-3">
-                  <label>state</label>
-                  <input placeholder="state/province" [(ngModel)]="band.state" 
-                  name="state">
-              </div>
-          <input class="btn btn-primary btn-block"  type="submit" value="Submit" class="btn btn-primary">
+         <div class="form-group col-md-12">
+             <label for="bio">Bio</label>
+             <input type="bio"
+             id="bio"
+             placeholder="bio goes here"
+             class="form-control"
+             required
+             name="bio"
+             #bio='ngModel'
 
-        </div>
-      </form>
-    </div>
+             [(ngModel)]="band.bio"
+             >
+                     <div *ngIf="bio.invalid && (bio.dirty || bio.touched)"
+                     class="alert alert-danger"
+                     > bio is required
+                     </div>
+         </div>
+   
+         <BR>
+            <div class="form-group col-md-12">
+                    <label for="hometown">Hometown</label>
+                    <input type="text"
+                    id="hometown"
+                    placeholder="be secure"
+                    class="form-control"
+                    required
+                    name="hometown"
+                    #hometown='ngModel'
+                    [(ngModel)]="band.hometown"
+                    >
+                            <div *ngIf="hometown.invalid && (hometown.dirty || hometown.touched)"
+                            class="alert alert-danger"
+                            > Hometown is required
+                            </div>
+                </div>
+                <div class="form-group col-md-12">
+                        <label for="state">State/Province</label>
+                        <input type="text"
+                        id="state"
+                        placeholder="State"
+                        class="form-control"
+                        required
+                        name="state"
+                        #state='ngModel'
+                        [(ngModel)]="band.state"
+                        >
+                                <div *ngIf="state.invalid && (state.dirty || state.touched)"
+                                class="alert alert-danger"
+                                > State is required
+                                </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                            <label for="genres">Genres</label> 
+                                <BR>
+                                        <div>
+                                        <button [disabled] class="button btn btn-info" (click)="genreState = !genreState">? What genres should I choose... ? </button> 
+   
+                                        <div class="genreButton" *ngIf="genreState === true">
+                                                <BR>
+                                                <div class="alert alert-info">
+                                                        <h2>Popular Genres:</h2>
+                                                        <span align="center">Using these selected genres will help people search for your band later. <a>Create Genre?</a></span>
+                                                        <ul *ngFor="let genre of allgenres;let idx = index">
+                                                                <li style="color:rgb(48, 29, 0)" *ngIf="idx % 2 == 0"> <i>{{ genre.name }}</i> [
+                                                                        <a href="{{genre.wiki}}" target="blank"style="color:grey"><i alt="Wikipedia" class="fa fa-wikipedia-w fa-xs"></i></a>
+                                                                        <a href="{{genre.spotify}}" target="blank"title="Spotify" style="color:green"><i class="fa fa-spotify fa-xs"></i></a>
+                                                                        <a href="{{genre.lastfm}}" target="blank" title="lastfm" style="color:rgb(39, 79, 131)"><i class="fa fa-lastfm fa-xs"></i></a>
+                                                                        ]
+                                                                </li>
+                                                                <li style="color:rgba(0, 0, 122, 0.582)" *ngIf="idx % 2 == 1"> {{ genre.name }} [
+                                                                        <a href="{{genre.wiki}}" target="blank" style="color:grey"><i alt="Wikipedia" class="fa fa-wikipedia-w fa-xs"></i></a>
+                                                                        <a href="{{genre.spotify}}"  target="blank" title="Spotify" style="color:green"><i class="fa fa-spotify fa-xs"></i></a>
+                                                                        <a href="{{genre.lastfm}}"  target="blank" title="lastfm" style="color:rgb(39, 79, 131)"><i class="fa fa-lastfm fa-xs"></i></a>
+                                                                        ]
+                                                                </li>
 
+
+
+                                                        </ul>
+                                                </div>
+                                        </div>
+                                        </div>
+                                <BR>
+                            <input type="text"
+                            id="genres"
+                            placeholder="seperate genres by ',' ex: punk,pop,rap, etc"
+                            class="form-control"
+                            required
+                            name="genres"
+                            #genres='ngModel'
+                            [(ngModel)]="band.genres"
+                            >
+                                    <div *ngIf="genres.valid && (genres.dirty || genres.touched)"
+                                    class="alert alert-danger"
+                                    > Genres is required 
+                                    </div>
+                                    <div *ngIf="!genres.valid && members.touched"
+                                        class="alert alert-info"
+                                        > Remember: genres must be seperated by commas.
+                                    </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                                <label for="members">Members</label>
+                                <input type="text"
+                                id="members"
+                                placeholder="seperate members by spaces"
+                                class="form-control"
+                                required
+                                name="members"
+                                #members='ngModel'
+                                [(ngModel)]="band.members"
+                                >
+                                        <div *ngIf="members.invalid && members.touched"
+                                        class="alert alert-danger"
+                                        > Members is required 
+                                        </div>
+                                        <div *ngIf="members.invalid && members.touched"
+                                        class="alert alert-info"
+                                        > Remember: Members must be seperated by commas.
+                                        </div>
+                            </div>
+             <BR>
+
+               <div class="container">
+                   <div class="container">
+                     <button class="butt col-7 btn-primary" 
+                     [hidden]="submitted" 
+                     [disabled]="!addBandForm.valid" 
+                     type="submit" 
+                     value="Create"
+                     >Add Band</button>
+                   </div>
+               </div>
+               <!-- <div *ngIf="message" class="alert alert-warning">
+                    {{ message }}
+                </div> -->
+               {{error}}
+       </div>
+       </div>
+     </div>
+       </form>
+
+    
 </div>
+
+<div align="center" *ngIf="users_current_bands.length != 0" class="jumbotron">
+        <BR><BR>
+            <h1 align="center">Your Bands</h1><BR>
+            <div *ngFor="let band of this.users_current_bands">
+            {{band.bandname}} - likes: {{ band.likes}}
+            </div>
+           
 </div>
 </div>

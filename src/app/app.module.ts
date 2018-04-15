@@ -25,6 +25,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { DataService } from './data.service';
+import { UploadService } from './uploads.service';
 
 
 import { FilterPipe } from './filter.pipe';
@@ -32,6 +33,9 @@ import { EmailLoginComponent } from './email-login/email-login.component';
 import { EmailSignupComponent } from './email-signup/email-signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddbandComponent } from './addband/addband.component';
+import { UserprofileComponent } from './userprofile/userprofile.component';
+import { UpdateuserComponent } from './updateuser/updateuser.component';
+import { GenresComponent } from './genres/genres.component';
 
 @Pipe({
   name: 'search'
@@ -90,6 +94,9 @@ export class TruncatePipe implements PipeTransform {
     EmailSignupComponent,
     DashboardComponent,
     AddbandComponent,
+    UserprofileComponent,
+    UpdateuserComponent,
+    GenresComponent,
     // FilterPipe
   ],
   imports: [
@@ -109,6 +116,7 @@ export class TruncatePipe implements PipeTransform {
     AuthService,
     AuthGuard,
     DataService,
+    UploadService,
     // ProposalService,
     // DocumentService,
     // services go here.
